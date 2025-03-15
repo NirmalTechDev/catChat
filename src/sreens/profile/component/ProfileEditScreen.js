@@ -76,6 +76,8 @@ const ProfileEditScreen = () => {
             ) : (
               <VectorIcon type={'Ionicons'} name="person-circle-outline" size={100} color="#888" />
             )}
+            <VectorIcon type={'Ionicons'} name="camera" size={16} color="#888" style={styles.cemeraIcon} />
+
           </TouchableOpacity>
 
           <View style={styles.form}>
@@ -161,7 +163,7 @@ const ProfileEditScreen = () => {
 
             <TouchableOpacity style={styles.saveButton}>
               <LinearGradient colors={['#00C6FF', '#0072FF']} style={styles.saveButtonGradient}>
-                <Ntext title='Save Details' size={18} color={colors.white} type='bold'/>
+                <Ntext title='Save Details' size={18} color={colors.white} type='bold' />
               </LinearGradient>
             </TouchableOpacity>
           </View>
@@ -195,7 +197,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginBottom: 20,
     borderRadius: 100,
-    overflow: 'hidden',
     width: 120,
     height: 120,
     justifyContent: 'center',
@@ -207,6 +208,7 @@ const styles = StyleSheet.create({
     height: 120,
     borderRadius: 60,
   },
+  cemeraIcon: { position: "absolute", bottom: 7, right: 7, backgroundColor: "white", padding: 5, borderRadius: 20, zIndex: 10, },
   form: {
     marginTop: 10,
   },

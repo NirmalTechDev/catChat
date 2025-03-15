@@ -146,8 +146,8 @@ import colors from '../../utils/colors';
 import { useNavigation } from '@react-navigation/native';
 import { Ntext } from '../../components/Ntext';
 
-const profilepic = ['https://instagram.fstv5-1.fna.fbcdn.net/v/t51.2885-19/454837168_322641514177562_4543743564091306202_n.jpg?_nc_ht=instagram.fstv5-1.fna.fbcdn.net&_nc_cat=102&_nc_ohc=XTixJITJBicQ7kNvgFA6NQE&_nc_gid=5722a423e5214232a472f93f1e74a167&edm=ALGbJPMBAAAA&ccb=7-5&oh=00_AYBxqofYCR_L4rfij6g1TqRKEug56A3JVD0tPSyWfmNwNw&oe=670DCA27&_nc_sid=7d3ac5',
-  'https://instagram.fstv5-1.fna.fbcdn.net/v/t51.2885-19/460879976_2264819820520905_5224897982768735743_n.jpg?_nc_ht=instagram.fstv5-1.fna.fbcdn.net&_nc_cat=109&_nc_ohc=htSqrrlELusQ7kNvgG-l40Z&_nc_gid=9c9561dc94e74e6aaf9770c0fcaf7d13&edm=ALGbJPMBAAAA&ccb=7-5&oh=00_AYCBJUg1t6dOFaHx8hs_do8fFp4l27DiY7mqfNIMAmXVFw&oe=670DC693&_nc_sid=7d3ac5'];
+const profilepic = ['https://instagram.fstv5-1.fna.fbcdn.net/v/t51.2885-19/472197390_586440157642792_6271528809390275856_n.jpg?_nc_ht=instagram.fstv5-1.fna.fbcdn.net&_nc_cat=104&_nc_oc=Q6cZ2AEXP5ZAtDPTTZV-08ZJbQrOt5F-kix59IiJ0AD7ufbv_B5N7kiCBxPfR1thrZp70oKMCZiQ4x2fJ_U90fNXylNU&_nc_ohc=Ld2T7piSNckQ7kNvgGuJWJg&_nc_gid=DvRWSIHSEvHgnGhfMpvytA&edm=ALGbJPMBAAAA&ccb=7-5&oh=00_AYENmbcu-DiY1t6yaPtg4SE-2cSuzlgE6MRHQ6_oBxJ5Xg&oe=67DB544D&_nc_sid=7d3ac5',
+  'https://instagram.fstv5-1.fna.fbcdn.net/v/t51.2885-19/468343289_586828337078713_7405646675230505126_n.jpg?_nc_ht=instagram.fstv5-1.fna.fbcdn.net&_nc_cat=101&_nc_oc=Q6cZ2AHXUwgSlrHl8cO3E6idV1BArUeZeGild86H4ScH5uMVrHJU7tBt0A0MxI_iL7hQm52zQRci8b2ayTNnL41mDEok&_nc_ohc=Q0qudHJQpaIQ7kNvgG4NS4W&_nc_gid=hlvgPs9qcC_EZutcqkwtNg&edm=ALGbJPMBAAAA&ccb=7-5&oh=00_AYF3W630I0xElhyFgaxGn3Nij5U_4Ty-Dmnvrj6cO1FfUg&oe=67DB2221&_nc_sid=7d3ac5'];
 
 
 const Home = () => {
