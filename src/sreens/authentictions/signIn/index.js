@@ -352,4 +352,57 @@ const SignIn = ({ navigation }) => {
     // );
 };
 
+// const SignIn = () => {
+
+//         const Toast = useToast();
+//     const [countryCode, setCountryCode] = useState('+91');
+//     const [mobileNumber, setMobileNumber] = useState('');
+//     const [name, setName] = useState('');
+//     const [email, setEmail] = useState('');
+//     const [password, setPassword] = useState('');
+//     const [confirm, setConfirm] = useState(null);
+//     const [otp, setOtp] = useState('');
+//     const [loading, setLoading] = useState(false);
+
+//     return(
+//         <View style={styles.container}>
+//             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+//               <KeyboardAvoidingView 
+//                     behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+//                     keyboardVerticalOffset={Platform.OS === 'ios' ? 60 : 0}>
+//                     <ScrollView style={styles.scrollContainer}>
+//                         <View style={styles.felds_container}>
+//                             <Text style={styles.header}>LogIn</Text>
+
+//                             <TextInput
+//                                 style={[
+//                                     styles.input,
+//                                     mobileNumber.length && {
+//                                         borderColor: colors.ThemeBorder,
+//                                     },
+//                                 ]}
+//                                 placeholder="Email"
+//                                 placeholderTextColor={colors.ThemeButton}
+//                                 keyboardType="email-address"
+//                                 value={email}
+//                                 onChangeText={setEmail}
+//                             />
+
+//                             <TouchableOpacity
+//                                 style={styles.button}
+//                                 // onPress={handleSendOTP}
+//                             >
+//                                 {
+//                                     loading ? <ActivityIndicator style={styles.loader} size={20} color={colors.ThemeBG} /> :
+//                                         <Text style={[styles.buttonText]}>Send OTP</Text>
+//                                 }
+//                             </TouchableOpacity>
+//                         </View>
+//                     </ScrollView>
+//                 </KeyboardAvoidingView>
+//             </TouchableWithoutFeedback>
+//         </View>
+//     )
+// }
+
 export default SignIn;
