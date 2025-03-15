@@ -107,6 +107,22 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+     signingConfigs {
+         release {
+            storeFile file(project.rootDir.toString() + "/my-release-key.keystore")
+            storePassword "nirmal.13"
+            keyAlias "my-key-alias"
+            keyPassword "nirmal.13"
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false  // Keep it false for debugging
+            shrinkResources false  // Set true for production to remove unused resources
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
 }
 
 dependencies {

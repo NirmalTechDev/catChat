@@ -160,7 +160,7 @@ const ChatScreen = () => {
       >
         {chats.map(chat => (
           <TouchableOpacity key={chat.id} style={styles.chatItem} onPress={() => { navigation.navigate('chatingScreen') }}>
-            <Image source={{ uri: chat.profilePic }} style={styles.profilePic} />
+            <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png' }} style={styles.profilePic} />
             <View style={styles.chatDetails}>
               <Ntext title={chat.name} size={16} type='bold' color={colors.black} />
               <Ntext title={chat.lastMessage} size={14} color={colors.Placeholdercolor} numberOfLine={1} />

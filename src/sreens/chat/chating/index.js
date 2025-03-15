@@ -211,7 +211,7 @@ import { styles } from './styles';
 
 const ChatingScreen = ({ route, navigation }) => {
 //   const { contact } = route.params; // Expecting contact object with name, avatar, etc.
-  const contact = {name:'nirmal', avatar:'https://placekitten.com/200/200'}
+  const contact = {name:'nirmal', avatar:'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png'}
   const [messages, setMessages] = useState([
     {
       id: '1',

@@ -222,7 +222,7 @@ const Home = () => {
                   </TouchableOpacity>
                   :
                   <TouchableOpacity style={styles.story}>
-                    <Image source={{ uri: 'https://via.placeholder.com/50' }} style={styles.storyImage} />
+                    <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png' }} style={styles.storyImage} />
                   </TouchableOpacity>
               )
             }}
@@ -239,10 +239,10 @@ const Home = () => {
               return (
                 <View style={styles.postCard}>
                   <View style={styles.postHeader}>
-                    <Image source={{ uri: 'https://via.placeholder.com/40' }} style={styles.postUserPic} />
+                    <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png' }} style={styles.postUserPic} />
                     <Ntext title='User1' size={14} type='bold' color={colors.Placeholdercolor} />
                   </View>
-                  <Image source={{ uri: 'https://via.placeholder.com/300' }} style={styles.postImage} />
+                  <Image source={{ uri: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=' }} style={styles.postImage} />
                   <View style={styles.postEngagementBar}>
                     <TouchableOpacity><VectorIcon name="heart" type={'EvilIcons'} size={25} color="#e74c3c" /></TouchableOpacity>
                     <TouchableOpacity><VectorIcon name="comment" type={'EvilIcons'} size={25} color="#333" /></TouchableOpacity>
