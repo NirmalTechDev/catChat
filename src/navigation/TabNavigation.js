@@ -12,14 +12,14 @@
 // const TabNavigation = () => {
 //   return (
 //     <Tab.Navigator
-//       initialRouteName={'home'}
+//       initialRouteName={'Home'}
 //       screenOptions={({ route }) => ({
 //         // eslint-disable-next-line react/no-unstable-nested-components
 //         tabBarIcon: ({ color, size }) => {
 //           let iconName;
 //           let iconType;
 
-//           if (route.name === 'home') {
+//           if (route.name === 'Home') {
 //             iconName = 'home-outline';
 //             iconType = 'Ionicons';
 //           } else if (route.name === 'vibes') {
@@ -44,7 +44,7 @@
 //         style: { paddingBottom: 5, height: 60 },
 //       }}
 //     >
-//       <Tab.Screen name="home" component={Home} options={{ headerShown: false }} />
+//       <Tab.Screen name="Home" component={Home} options={{ headerShown: false }} />
 //       <Tab.Screen name="findFriends" component={FindFriendsScreen} options={{ headerShown: false }} />
 //       <Tab.Screen name="vibes" component={VibesScreen} options={{ headerShown: false }} />
 //       <Tab.Screen name="chat" component={ChatScreen} options={{ headerShown: false }} />
@@ -56,7 +56,7 @@
 // export default TabNavigation;
 
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../sreens/home';
 import ProfileScreen from '../sreens/profile';
@@ -65,6 +65,8 @@ import FindFriendsScreen from '../sreens/findFriends';
 import ChatScreen from '../sreens/chat';
 import VectorIcon from '../components/Vectoricon';
 import colors from '../utils/colors';
+import CreatePost from '../sreens/createPosts';
+import MarketPlace from '../sreens/marketPlace';
 
 const Tab = createBottomTabNavigator();
 
@@ -87,8 +89,8 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
           options.tabBarLabel !== undefined
             ? options.tabBarLabel
             : options.title !== undefined
-            ? options.title
-            : route.name;
+              ? options.title
+              : route.name;
 
         const isFocused = state.index === index;
 
@@ -96,9 +98,12 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
         let iconType;
 
         // Define icons for each route
-        if (route.name === 'home') {
+        if (route.name === 'Home') {
           iconName = 'home-outline';
           iconType = 'Ionicons';
+        } else if (route.name === 'CreatePost') {
+          iconName = 'plus';
+          iconType = 'Entypo';
         } else if (route.name === 'vibes') {
           iconName = 'play-video';
           iconType = 'Foundation';
@@ -108,6 +113,9 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
         } else if (route.name === 'chat') {
           iconName = 'chat-outline';
           iconType = 'MaterialCommunityIcons';
+        } else if (route.name === 'MarketPlace') {
+          iconName = 'shop';
+          iconType = 'Entypo';
         } else if (route.name === 'Profile') {
           iconName = 'person-outline';
           iconType = 'Ionicons';
@@ -132,7 +140,8 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
           });
         };
 
-        return route.name === 'vibes' ? (
+
+        return route.name === 'CreatePost' ?
           <CustomTabBarButton key={route.key} onPress={onPress}>
             <VectorIcon
               name={iconName}
@@ -141,34 +150,34 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
               color={isFocused ? colors.black : 'white'}
             />
           </CustomTabBarButton>
-        ) : (
-          <TouchableOpacity
-            key={route.key}
-            accessibilityRole="button"
-            accessibilityState={isFocused ? { selected: true } : {}}
-            accessibilityLabel={options.tabBarAccessibilityLabel}
-            testID={options.tabBarTestID}
-            onPress={onPress}
-            onLongPress={onLongPress}
-            style={styles.tabItem}
-          >
-            {
-              (route.name === 'chat') &&
+          : (
+            <TouchableOpacity
+              key={route.key}
+              accessibilityRole="button"
+              accessibilityState={isFocused ? { selected: true } : {}}
+              accessibilityLabel={options.tabBarAccessibilityLabel}
+              testID={options.tabBarTestID}
+              onPress={onPress}
+              onLongPress={onLongPress}
+              style={styles.tabItem}
+            >
+              {
+                (route.name === 'chat') &&
                 <View style={styles.chat_Noti_Conte}>
                   <Text style={styles.chat_Noti}>7</Text>
                 </View>
-            }
-            <VectorIcon
-              name={iconName}
-              type={iconType}
-              size={30}
-              color={isFocused ? colors.ThemeBorder : 'gray'}
-            />
-            {/* <Text style={[styles.tabLabel, { color: isFocused ? colors.ThemeBorder : 'gray' }]}>
+              }
+              <VectorIcon
+                name={iconName}
+                type={iconType}
+                size={25}
+                color={isFocused ? colors.ThemeBorder : 'gray'}
+              />
+              {/* <Text style={[styles.tabLabel, { color: isFocused ? colors.ThemeBorder : 'gray' }]}>
               {label}
             </Text> */}
-          </TouchableOpacity>
-        );
+            </TouchableOpacity>
+          );
       })}
     </View>
   );
@@ -177,13 +186,15 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
 const TabNavigation = () => {
   return (
     <Tab.Navigator
-      initialRouteName={'home'}
+      initialRouteName={'Home'}
       tabBar={(props) => <CustomTabBar {...props} />}
       screenOptions={{ headerShown: false }}
     >
-      <Tab.Screen name="home" component={Home} />
-      <Tab.Screen name="findFriends" component={FindFriendsScreen} />
+      <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="vibes" component={VibesScreen} />
+      <Tab.Screen name="findFriends" component={FindFriendsScreen} />
+      <Tab.Screen name="CreatePost" component={CreatePost} />
+      <Tab.Screen name="MarketPlace" component={MarketPlace} />
       <Tab.Screen name="chat" component={ChatScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
@@ -203,24 +214,24 @@ const styles = StyleSheet.create({
   },
   tabItem: {
     alignItems: 'center',
-    paddingHorizontal:10,
+    paddingHorizontal: 10,
   },
   chat_Noti_Conte: {
-    position:'absolute', 
-    zIndex:1, 
-    right:5, 
-    top:-5 
+    position: 'absolute',
+    zIndex: 1,
+    right: 5,
+    top: -5
   },
   chat_Noti: {
-    height:18, 
-    width:18,
-    borderRadius:100, 
-    backgroundColor:colors.ThemeBorder, 
-    color:colors.black, 
-    textAlign:'center',
-    textAlignVertical:'center',
-    fontWeight:'900',
-    fontSize:13,
+    height: 18,
+    width: 18,
+    borderRadius: 100,
+    backgroundColor: colors.ThemeBorder,
+    color: colors.black,
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    fontWeight: '900',
+    fontSize: 13,
   },
   tabLabel: {
     fontSize: 10,

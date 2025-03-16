@@ -24,7 +24,7 @@ const AppNavigation = () => {
 
       <Stack.Screen name="login" component={SignIn} options={{ headerShown: false, animation: 'ios' }} />
 
-      <Stack.Screen name="home" component={TabNavigation} options={{ headerShown: false, animation: 'ios' }} />
+      <Stack.Screen name="Home" component={TabNavigation} options={{ headerShown: false, animation: 'ios' }} />
 
       <Stack.Screen name='findFriend' component={FindFriendsScreen} options={{ headerShown: false, animation: 'ios' }} />
 

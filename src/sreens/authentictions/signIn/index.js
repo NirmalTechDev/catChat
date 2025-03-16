@@ -27,7 +27,7 @@ const SignIn = ({ navigation }) => {
         if (user) {
             console.log(user);
 
-            navigation.navigate('home');
+            navigation.navigate('Home');
             // Alert.alert('Jay Dwarikadhish')
             // Some Android devices can automatically process the verification code (OTP) message, and the user would NOT need to enter the code.
             // Actually, if he/she tries to enter it, he/she will get an error message because the code was already used in the background.
@@ -52,7 +52,7 @@ const SignIn = ({ navigation }) => {
         } catch (error) {
           console.error('Error setting document: ', error);
         }
-      };
+    };
 
 
 
@@ -143,17 +143,6 @@ const SignIn = ({ navigation }) => {
                 setData(); // Assuming this is to reset form fields
                 setLoading(false);
 
-                // Store user data in Firestore after OTP has been sent
-                await firestore()
-                    .collection('users')
-                    .add({
-                        name: trimmedName,
-                        email: trimmedEmail,
-                        password: trimmedPassword, // Ideally, hash this password
-                        number: trimmedMobileNumber,
-                    });
-
-                console.log('User data set successfully!');
                 Alert.alert('enter OTP','131313')
             } catch (error) {
                 console.error(error);
