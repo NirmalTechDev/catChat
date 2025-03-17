@@ -23,6 +23,14 @@ const SignIn = ({ navigation }) => {
         return subscriber; // unsubscribe on unmount
     });
 
+    const clearStates = () => {
+        setConfirm(null);
+        setName('');
+        setEmail('');
+        setPassword('');
+        setMobileNumber('');
+    }
+
     function onAuthStateChanged(user) {
         if (user) {
             console.log(user);
@@ -38,19 +46,19 @@ const SignIn = ({ navigation }) => {
 
     const setData = async () => {
         try {
-          // Using set() to create or update a document in Firestore
-          await firestore()
-            .collection('users') // Collection name
-            .add({
-              name: name,
-              email: email,
-              password: password,
-              number: mobileNumber,
-            });
+            // Using set() to create or update a document in Firestore
+            await firestore()
+                .collection('users') // Collection name
+                .add({
+                    name: name,
+                    email: email,
+                    password: password,
+                    number: mobileNumber,
+                });
 
-          console.log('User data set successfully!');
+            console.log('User data set successfully!');
         } catch (error) {
-          console.error('Error setting document: ', error);
+            console.error('Error setting document: ', error);
         }
     };
 
@@ -95,7 +103,7 @@ const SignIn = ({ navigation }) => {
 
         // Validation
         if (trimmedName.length === 0) {
-            Toast.show('Please enter your name.',{
+            Toast.show('Please enter your name.', {
                 type: 'warning',
                 position: 'bottom',
                 visibilityTime: 1300,
@@ -105,7 +113,7 @@ const SignIn = ({ navigation }) => {
         }
 
         if (!validator.isEmail(trimmedEmail)) {
-            Toast.show('Please enter a valid email address.',{
+            Toast.show('Please enter a valid email address.', {
                 type: 'warning',
                 position: 'bottom',
                 visibilityTime: 1300,
@@ -115,7 +123,7 @@ const SignIn = ({ navigation }) => {
         }
 
         if (trimmedPassword.length < 6) { // Minimum 6 characters for password
-            Toast.show('Password must be at least 6 characters long.',{
+            Toast.show('Password must be at least 6 characters long.', {
                 type: 'warning',
                 position: 'bottom',
                 visibilityTime: 1300,
@@ -125,7 +133,7 @@ const SignIn = ({ navigation }) => {
         }
 
         if (trimmedMobileNumber.length !== 13 || !validator.isNumeric(trimmedMobileNumber)) {
-            Toast.show('Please enter a valid 10-digit mobile number.',{
+            Toast.show('Please enter a valid 10-digit mobile number.', {
                 type: 'warning',
                 position: 'bottom',
                 visibilityTime: 1300,
@@ -143,10 +151,10 @@ const SignIn = ({ navigation }) => {
                 setData(); // Assuming this is to reset form fields
                 setLoading(false);
 
-                Alert.alert('enter OTP','131313')
+                Alert.alert('enter OTP', '131313')
             } catch (error) {
                 console.error(error);
-                Toast.show('There was an issue with your mobile number.',{
+                Toast.show('There was an issue with your mobile number.', {
                     type: 'warning',
                     position: 'bottom',
                     visibilityTime: 1300,
@@ -170,6 +178,7 @@ const SignIn = ({ navigation }) => {
                     offset: 30,
                     animationType: 'slide-in',
                 });
+                clearStates();
             } catch (error) {
                 console.log('Invalid code.');
                 Toast.show('Invalid code', {
