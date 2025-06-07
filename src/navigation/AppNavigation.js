@@ -4,7 +4,6 @@ import SignIn from '../sreens/authentictions/signIn';
 import FirstScreen from '../sreens/firstScreen';
 import ProfileScreen from '../sreens/profile';
 import TabNavigation from './TabNavigation';
-import LoginScreen from '../sreens/hello';
 import SettingScreen from '../sreens/profile/settings';
 import ProfileEditScreen from '../sreens/profile/component/ProfileEditScreen';
 import FriendsProfileScreen from '../sreens/friendsProfile';
@@ -19,7 +18,6 @@ const AppNavigation = () => {
     // <ToastProvider>
     //   <NavigationContainer>
     <Stack.Navigator initialRouteName="login">
-      <Stack.Screen name="test" component={LoginScreen} options={{ headerShown: false, animation: 'ios' }} />
       <Stack.Screen name="first" component={FirstScreen} options={{ headerShown: false, animation: 'ios' }} />
 
       <Stack.Screen name="login" component={SignIn} options={{ headerShown: false, animation: 'ios' }} />
